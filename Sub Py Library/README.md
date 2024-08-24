@@ -13,5 +13,5 @@ UTILIZE IT TO SAVE YOUR PRECIOUS TIME.
 Installation:
 
 ```bash
-pip install sub-py-num
+pip install sub-py-library
 ```
