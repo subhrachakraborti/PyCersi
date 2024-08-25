@@ -290,6 +290,29 @@ def isugly(N):
     return N == 1
 
 #Mathematical Functions
+def digwords():
+    if num == 0:
+        return "zero"
+    ones = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
+    teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"]
+    tens = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"]
+    words = ""
+    if num >= 1000:
+        words += ones[num // 1000] + " Thousand "
+        num %= 1000
+    if num >= 100:
+        words += ones[num // 100] + " Hundred "
+        num %= 100
+    if 10 <= num <= 19:
+        words += teens[num - 10] + " "
+        num = 0
+    elif num >= 20:
+        words += tens[num // 10] + " "
+        num %= 10
+    if num >= 1:
+        words += ones[num] + " "
+    return words.strip()
+
 def fact(n):
     return m.factorial(n)
 def factor(n):
