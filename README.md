@@ -1,17 +1,18 @@
 # PyCersi
 
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Python Versions](https://img.shields.io/pypi/pyversions/sub-py-library)
+![Python Versions](https://img.shields.io/pypi/pyversions/pycersi)
 
 ##### DEVELOPED BY SUBHRA CHAKRABORTI
 
 ##### LAST UPDATE: 25TH AUGUST 2024
 
-##### VERSION: 2.0.0
+##### VERSION: 3.0.0
 
 ## Overview
 
-PyCersi is a simple Python library that provides essential tools for [describe the functionality of your library]. It is easy to use, lightweight, and can be integrated into various Python projects.
+PyCersi is a simple Python library that provides essential tools for number fuctions (described below).
+It is easy to use, lightweight, and can be integrated into various Python projects.
 
 ## Features
 
