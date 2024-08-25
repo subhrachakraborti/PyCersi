@@ -5,7 +5,7 @@
 
 ##### DEVELOPED BY SUBHRA CHAKRABORTI
 ##### LAST UPDATE: 25TH AUGUST 2024
-##### VERSION: v.1.beta
+##### VERSION: 2.0.0
 
 ## Overview
 
