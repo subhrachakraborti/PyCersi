@@ -29,9 +29,11 @@ PyCersi offers a collection of number-related utilities that can simplify common
   - `CoPrime Number Checker`
   - `Digit to Word Converter`
   - `Disarium Number Checker`
+  - `Dudeney Number Checker`
   - `Duck Number Checker`
   - `Happy Number Checker`
   - `Harshad Number Checker`
+  - `Krishnamurthy Number Checker`
   - `Magic Number Checker`
   - `Neon Number Checker`
   - `Niven Number Checker`
@@ -39,6 +41,7 @@ PyCersi offers a collection of number-related utilities that can simplify common
   - `Perfect Number Checker`
   - `Prime Number Checker`
   - `Pronic Number Checker`
+  - `Sunny Number Checker`
   - `Special Number Checker`
   - `Spy Number Checker`
   - `Twin Prime Number Checker`
@@ -100,9 +103,20 @@ sudo apt install python3 python3-pip
 pip3 install pycersi
 ```
 
+## Using
+1. For using any *searchers* functions from PyCersi module, use:
+  ``pycersi.<name>(limit)``.
+- Example: `pycersi.fibo(limit)`
+2. For using any *checker* functions from PyCersi module, use:
+  ``pycersi.is<name>(value)``.
+- Example: `pycersi.issunny(value)`
+3. For using any *mathematical* function from PyCersi module, use:
+  ``pycersi.cal<name>(value)``.
+  - Example: `pycesi.calfact(value)`
+
 ## Contributing
 
-We welcome contributions to the project! If you want to contribute, please follow these steps:
+I welcome contributions to the project! If you want to contribute, please follow these steps:
 
 Fork the repository.
 
