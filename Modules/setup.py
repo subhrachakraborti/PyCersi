@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="pycersi",
-    version="v.1.beta",
+    version="2.0.0",
     description="A Great Python Library by Subhra Chakraborti",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
