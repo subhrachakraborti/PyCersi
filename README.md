@@ -4,7 +4,9 @@
 ![Python Versions](https://img.shields.io/pypi/pyversions/sub-py-library)
 
 ##### DEVELOPED BY SUBHRA CHAKRABORTI
+
 ##### LAST UPDATE: 25TH AUGUST 2024
+
 ##### VERSION: 2.0.0
 
 ## Overview
@@ -14,29 +16,35 @@ PyCersi is a simple Python library that provides essential tools for [describe t
 ## Features
 
 PyCersi offers a collection of number-related utilities that can simplify common mathematical tasks:
+
 - **Searchers**
   - `Fibonacci Series Program`
   - `Floyd Triangle Program`
   - `Greatest Common Divisor Program`
   - `Least Common Multiple Program`
-    
 - **Number Property Checkers**
+
   - `Abundant Number Checker`
   - `Armstrong Number Checker`
   - `Automorphic Number Checker`
   - `Buzz Number Checker`
   - `Circular Prime Number Checker`
+  - `Curzon Number Checker`
+  - `Composite Number Checker`
   - `CoPrime Number Checker`
-  - `Digit to Word Converter`
   - `Disarium Number Checker`
   - `Dudeney Number Checker`
   - `Duck Number Checker`
+  - `Even Number Checker`
   - `Happy Number Checker`
   - `Harshad Number Checker`
+  - `Heteromecic Number Checker`
   - `Krishnamurthy Number Checker`
   - `Magic Number Checker`
   - `Neon Number Checker`
   - `Niven Number Checker`
+  - `Oblong Number Checker`
+  - `Odd Number Checker`
   - `Palindrome Number Checker`
   - `Perfect Number Checker`
   - `Prime Number Checker`
@@ -49,7 +57,9 @@ PyCersi offers a collection of number-related utilities that can simplify common
   - `Unique Number Checker`
   - `Tech Number Checker`
   - `Ugly Number Checker`
+
 - **Mathematical Functions**
+  - `Digit to Word Converter`
   - `Factorial Calculator`
   - `Factors Calculator`
 
@@ -104,15 +114,21 @@ pip3 install pycersi
 ```
 
 ## Using
-1. For using any *searchers* functions from PyCersi module, use:
-  ``pycersi.<name>(limit)``.
+
+1. For using any _searchers_ functions from PyCersi module, use:
+   `pycersi.<name>(limit)`.
+
 - Example: `pycersi.fibo(limit)`
-2. For using any *checker* functions from PyCersi module, use:
-  ``pycersi.is<name>(value)``.
+
+2. For using any _checker_ functions from PyCersi module, use:
+   `pycersi.is<name>(value)`.
+
 - Example: `pycersi.issunny(value)`
-3. For using any *mathematical* function from PyCersi module, use:
-  ``pycersi.cal<name>(value)``.
-  - Example: `pycesi.calfact(value)`
+
+3. For using any _mathematical_ function from PyCersi module, use:
+   `pycersi.cal<name>(value)`.
+
+- Example: `pycesi.calfact(value)`
 
 ## Contributing
 
