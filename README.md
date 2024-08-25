@@ -97,7 +97,7 @@ sudo apt install python3 python3-pip
 3. **Run the pip command**:
 
 ```bash
-pip3 install sub-py-library
+pip3 install pycersi
 ```
 
 ## Contributing
