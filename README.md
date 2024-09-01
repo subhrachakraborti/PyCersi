@@ -5,9 +5,9 @@
 
 ##### DEVELOPED BY SUBHRA CHAKRABORTI
 
-##### LAST UPDATE: 25TH AUGUST 2024
+##### LAST UPDATE: 31ST AUGUST 2024
 
-##### VERSION: 3.0.0
+##### VERSION: 4.0.0
 
 ## Overview
 
@@ -19,10 +19,13 @@ It is easy to use, lightweight, and can be integrated into various Python projec
 PyCersi offers a collection of number-related utilities that can simplify common mathematical tasks:
 
 - **Searchers**
-  - `Fibonacci Series Program`
+
+  - `Fibonacci Upto Program : fiboupto`
+  - `Fibonacci Range Program : fiborange`
   - `Floyd Triangle Program`
   - `Greatest Common Divisor Program`
   - `Least Common Multiple Program`
+
 - **Number Property Checkers**
 
   - `Abundant Number Checker`
@@ -37,6 +40,7 @@ PyCersi offers a collection of number-related utilities that can simplify common
   - `Dudeney Number Checker`
   - `Duck Number Checker`
   - `Even Number Checker`
+  - `Fibonacci Number Checker`
   - `Happy Number Checker`
   - `Harshad Number Checker`
   - `Heteromecic Number Checker`
@@ -60,9 +64,22 @@ PyCersi offers a collection of number-related utilities that can simplify common
   - `Ugly Number Checker`
 
 - **Mathematical Functions**
+
+  - `Area of Circle : ar_circle`
+  - `Area of Rectangle : ar_rect`
+  - `Area of Triangle : ar_triangle`
   - `Digit to Word Converter`
   - `Factorial Calculator`
   - `Factors Calculator`
+
+- **Stack Functions**
+
+  - `Push Into Stack : s_push`
+  - `Pop Out Of Stack : s_push`
+  - `Size Of Stack : s_size`
+  - `Underflow Stack Checker : s_empty`
+  - `Top Of Stack : s_top`
+  - `Display Stack : s_display`
 
 These functions are designed to help you perform common number-related operations efficiently and can be easily integrated into larger projects.
 
@@ -114,7 +131,7 @@ sudo apt install python3 python3-pip
 pip3 install pycersi
 ```
 
-## Using
+## Using The Functions
 
 1. For using any _searchers_ functions from PyCersi module, use:
    `pycersi.<name>(limit)`.
@@ -130,6 +147,11 @@ pip3 install pycersi
    `pycersi.cal<name>(value)`.
 
 - Example: `pycesi.calfact(value)`
+
+4. For using any _stack_ function from PyCersi module, use:
+   `pycersi.s_<name>(stack,[element])`.
+
+- Example: `pycesi.s_top(book_stack)`
 
 ## Contributing
 
@@ -153,4 +175,8 @@ If you have any questions, feel free to open an issue or contact me directly at 
 
 ## Acknowledgments
 
-[Math Library]
+- - Math Library
+- - Python Org
+- - Visual Studio Code
+- - GitHub
+- - Microsoft Corporation

@@ -1,7 +1,7 @@
 """
 DEVELOPED BY SUBHRA CHAKRABORTI
 Last Update: 25th August 2024
-Version: v.1.beta
+Version: 4.0.0
 
 Welcome to PyCersi!
 I’ve designed it with careful consideration of user experience.
@@ -15,23 +15,32 @@ pi = m.pi
 e = m.e
 
 #Searchers Functions.
-def fibo(n):
-    a, b, c = 0, 1, 0
-    print(a)
-    while c<=n:
-        c = a + b
-        print(b)
-        a,b = b,c
-        if c > n:
-            break
+def fiboupto(n):
+    a, b = 0, 1
+    l = [a]
+    while b <= n:
+        l.append(b)
+        a, b = b, a + b
+    return l
+def fiborange(n):
+    if n == 0:
+        return []
+    a, b = 0, 1
+    l = [a]
+    for i in range(n-1):
+        l.append(b)
+        a, b = b, a + b
+    return l
+
 def floyd(rows):
     n = 1
-    print("Floyd's Triangle") 
+    print("Floyd's Triangle")
     for i in range(1, rows + 1):
-        for j in range(1, i + 1):        
-            print(n, end = '  ')
-            n = n + 1
-    print()
+        for j in range(1, i + 1):
+            print(n, end='  ')
+            n += 1
+        print()  # Add a newline after each row
+
 def gcd(list1):
     return m.gcd(*list1)
 def lcm(list1):
@@ -46,7 +55,9 @@ def digirev(n):
         s = s*10 + d
     return s
 def digipro(n):
-    s = 0
+    if n == 0:
+        return 0
+    s = 1
     while n > 0:
         d = n % 10
         n = n // 10
@@ -69,7 +80,7 @@ def numSquareSum(n):
 #Number Checkers Functions.
 def isabundant(n):
     sum = 0
-    for i in range(n):
+    for i in range(1,n):
         if(n%i == 0):
             sum += i
     if(sum > n):
@@ -157,6 +168,10 @@ def isduck(n):
     return '0' in num
 def iseven(n):
     return n % 2 == 0
+def isfibonacci(n):
+    if n in fiboupto(n):
+        return True
+    return False
 def ishappy(n):
     slow, fast = n, n
     while True:
@@ -218,21 +233,17 @@ def isperfect(n):
     else:
         return False
 def isprime(n):
-    c = 0
-    for i in range(2,(n//2)+1):
-        if n % i == 0:
-            c += 1
-            break
-    if c == 0:
-        return True
-    else:
+    if n < 2:
         return False
+    for i in range(2, (n // 2) + 1):
+        if n % i == 0:
+            return False
+    return True
 def ispronic(n):
-    for i in range():
+    for i in range(n):
         if i * (i + 1) == n:
             return True
-        else:
-            return False
+    return False
 def issunny(n):
     o = n+1
     if m.sqrt(o) == int(m.sqrt(o)):
@@ -263,11 +274,12 @@ def istwistedprime(n):
     else:
         return False
 def isunique(n):
-    ld = n % 10
+    seen = set()
     while n > 0:
         digit = n % 10
-        if digit == ld:
+        if digit in seen:
             return False
+        seen.add(digit)
         n //= 10
     return True
 def istech(n):
@@ -290,7 +302,15 @@ def isugly(N):
     return N == 1
 
 #Mathematical Functions
-def digwords():
+def ar_circle(radius):
+    return 2 * pi * radius
+def ar_rect(l, b=1):
+    return l * b
+def ar_triangle(side1, side2, side3):
+    s = (side1 + side2 + side3) / 2
+    area = m.sqrt(s * (s - side1) * (s - side2) * (s - side3))
+    return area
+def digwords(num):
     if num == 0:
         return "zero"
     ones = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
@@ -313,6 +333,7 @@ def digwords():
         words += ones[num] + " "
     return words.strip()
 
+
 def fact(n):
     return m.factorial(n)
 def factor(n):
@@ -321,3 +342,33 @@ def factor(n):
         if n % i == 0:
             l.append(i)
     return l
+
+#Stack Functions
+def s_push(stack,element):
+    stack.append(element)
+def s_size(stack):
+    return len(stack)
+def s_Empty(stack):
+    if s_size(stack) == 0:
+        return True
+    else:
+        return False
+def s_pop(stack):
+    if s_Empty(stack):
+        print('Underflow')
+        return None
+    else:
+        return stack.pop()
+def s_top(stack):
+    if s_Empty(stack):
+        print('Stack is empty.')
+        return None
+    else:
+        x = s_size(stack)
+        element = stack[x-1]
+        return element
+def s_display(stack):
+    x = s_size(stack)  
+    print("Current elements are : ")
+    for i in range(x-1,-1,-1):
+        print(stack[i])
