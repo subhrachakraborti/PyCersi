@@ -12,10 +12,9 @@ The following table lists the versions of the project that are currently receivi
 
 | Version      | Supported          |
 |--------------|--------------------|
-| 3.x          |✅                 |  
-| 2.x          | ✅                 |
-| 1.x          | ✅                 |
-| < 1.x        | :x:                |
+| 5.0.0        | ✅                 |
+| 4.0.0        | ✅                 |
+| < 3.x        | :x:                |
 
 Please make sure to keep your installation up to date to receive the latest security patches and improvements.
 
