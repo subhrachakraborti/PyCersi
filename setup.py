@@ -3,9 +3,9 @@ from setuptools import setup, find_packages
 
 setup(
     name="pycersi",
-    version="4.0.0",
+    version="5.0.0",
     install_requires=[],
-    description="A Great Python Library by Subhra Chakraborti",
+    description="PyCersi is a lightweight Python library for number-related utilities. It offers mathematical functions, checkers, and stack operations, simplifying common tasks. Easy to install via pip , it's designed for efficient integration into various Python projects.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/subhrachakraborti/PyCersi",

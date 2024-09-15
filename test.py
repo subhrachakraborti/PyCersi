@@ -367,6 +367,6 @@ class TestPyCersi(unittest.TestCase):
         sys.stdout = sys.__stdout__
         expected_output = "Current elements are : \n3\n2\n1\n"
         self.assertEqual(captured_output.getvalue(), expected_output)
-
+    
 if __name__ == '__main__':
     unittest.main()
