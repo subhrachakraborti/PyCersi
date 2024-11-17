@@ -310,6 +310,7 @@ class TestPyCersi(unittest.TestCase):
     def test_ar_triangle(self):
         self.assertAlmostEqual(p.ar_triangle(3, 4, 5), 6, places=7)
         self.assertAlmostEqual(p.ar_triangle(5, 5, 5), 10.825317547305483, places=7)
+        self.assertAlmostEqual(p.ar_triangle(17, 21, 10), 84, places=7)
 
 
 
@@ -332,12 +333,12 @@ class TestPyCersi(unittest.TestCase):
         self.assertEqual(p.factor(17), [])  # Prime number
         self.assertEqual(p.factor(1), [])
 
-    def test_digwords(self):
+    def test_digiwords(self):
         # Note: The digwords function in the provided code seems to be incomplete.
         # It's missing the 'num' parameter. Let's assume it's fixed and test it.
-        self.assertEqual(p.digwords(0), "zero")
-        self.assertEqual(p.digwords(42), "Forty Two")
-        self.assertEqual(p.digwords(1999), "One Thousand Nine Hundred Ninety Nine")
+        self.assertEqual(p.digiwords(0), "zero")
+        self.assertEqual(p.digiwords(42), "Forty Two")
+        self.assertEqual(p.digiwords(1999), "One Thousand Nine Hundred Ninety Nine")
 
     # Stack Functions Tests
     def test_stack_operations(self):

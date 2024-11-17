@@ -8,9 +8,9 @@
 
 ##### DEVELOPED BY SUBHRA CHAKRABORTI
 
-##### LAST UPDATE: 15 SEPTEMBER 2024
+##### LAST UPDATE: 17 NOVEMBER 2024
 
-##### VERSION: 5.0.0
+##### VERSION: 5.1.0
 
 ## Overview
 
@@ -71,9 +71,9 @@ PyCersi offers a collection of number-related utilities that can simplify common
   - `Area of Circle : ar_circle`
   - `Area of Rectangle : ar_rect`
   - `Area of Triangle : ar_triangle`
-  - `Digit to Word Converter`
-  - `Factorial Calculator`
-  - `Factors Calculator`
+  - `Digit to Word Converter : digiwords`
+  - `Factorial Calculator : fact`
+  - `Factors Calculator : factor`
 
 - **Stack Functions**
 

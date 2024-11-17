@@ -1,7 +1,7 @@
 """
 DEVELOPED BY SUBHRA CHAKRABORTI
 Last Update: 15th September 2024
-Version: 5.0.0
+Version: 5.1.0
 
 Welcome to PyCersi!
 I’ve designed it with careful consideration of user experience.
@@ -13,6 +13,56 @@ Feel free to utilize it to save your precious time. 😊
 import math as m
 pi = m.pi
 e = m.e
+
+#Intro
+def pycersi():
+    import turtle
+    t = turtle.Turtle()
+    s = turtle.Screen()
+    s.bgcolor("black")
+    t.speed(3)
+
+    font_size = 80
+    font_type = ("Courier New", font_size, "bold")
+
+    def write_colorful_text(text, colors):
+        for i, letter in enumerate(text):
+            t.pencolor(colors[i % len(colors)])
+            t.write(letter, font=font_type, align="center")
+            t.penup()
+            t.forward(font_size + 10)
+            t.pendown()
+
+    def draw_pycersi():
+        t.penup()
+        t.goto(-250, 50)
+        t.pendown()
+        colors = ["#FFD43B", "#306998", "#FFE873", "#4B8BBE", "#3776AB", "#FFDF5B", "#646464"]
+        write_colorful_text("PyCersi", colors)
+        t.hideturtle()
+
+    def draw_version():
+        t.penup()
+        t.goto(140, -20)
+        t.pendown()
+        t.pencolor("white")
+        t.write("5.1.0", font=("Courier New", 30, "bold"), align="center")
+        t.hideturtle()
+
+    def notes():
+        t.penup()
+        t.goto(0, -150)
+        t.pendown()
+        t.pencolor("white")
+        t.write("By Subhra Chakraborti", font=("Courier New", 30, "bold"), align="center")
+        t.hideturtle()
+
+    draw_pycersi()
+    draw_version()
+    notes()
+    turtle.done()
+
+
 
 #Searchers Functions.
 def fiboupto(n):
@@ -310,7 +360,7 @@ def ar_triangle(side1, side2, side3):
     s = (side1 + side2 + side3) / 2
     area = m.sqrt(s * (s - side1) * (s - side2) * (s - side3))
     return area
-def digwords(num):
+def digiwords(num):
     if num == 0:
         return "zero"
     ones = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
