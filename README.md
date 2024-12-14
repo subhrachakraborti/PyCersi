@@ -8,9 +8,9 @@
 
 ##### DEVELOPED BY SUBHRA CHAKRABORTI
 
-##### LAST UPDATE: 17 NOVEMBER 2024
+##### LAST UPDATE: 14 DECEMBER 2024
 
-##### VERSION: 5.1.0
+##### VERSION: 5.5.0
 
 ## Overview
 
@@ -20,6 +20,43 @@ It is easy to use, lightweight, and can be integrated into various Python projec
 ## Features
 
 PyCersi offers a collection of number-related utilities that can simplify common mathematical tasks:
+
+- **Mathematical Constants**
+
+  - `Euler's Constant (e)`
+  - `Golden Ratio (GR)`
+  - `Logarithm of e (loge)`
+  - `Pi (pi)`
+
+- **Physical Constants**
+
+  - `Astronomical Unit (AU)`
+  - `Bohr Radius (a0)`
+  - `Electric Permitivity (Eo)`
+  - `Elementary Charge (Q)`
+  - `Fine Structure Constant (fsc)`
+  - `Gravitational Constant (G)`
+  - `Light Year (LY)`
+  - `Magnetic Permeability (Muo)`
+  - `Mass of Earth (ME)`
+  - `Mass of Electron (me)`
+  - `Mass of Neutron (mn)`
+  - `Mass of Proton (mp)`
+  - `Mass of Sun (MS)`
+  - `Planck's Constant (h)`
+  - `Parsec (PC)`
+  - `Reduced Plank Constant (hbar)`
+  - `Speed of Light (c)`
+
+- **Additional Constants**
+
+  - `Avogadro's Number (NA)`
+  - `Boltzmann Constant (BK)`
+  - `Chandrashekhar Limit (CSK)`
+  - `Faraday's Constant (F)`
+  - `Gas Constant (R)`
+  - `Hubble's Constant (H)`
+  - `Stefan-Boltzmann Constant (SBK)`
 
 - **Searchers**
 
@@ -71,9 +108,11 @@ PyCersi offers a collection of number-related utilities that can simplify common
   - `Area of Circle : ar_circle`
   - `Area of Rectangle : ar_rect`
   - `Area of Triangle : ar_triangle`
+  - `Combination Calculator : comb`
   - `Digit to Word Converter : digiwords`
   - `Factorial Calculator : fact`
   - `Factors Calculator : factor`
+  - `Permutation Calculator : perm`
 
 - **Stack Functions**
 

@@ -1,7 +1,7 @@
 """
 DEVELOPED BY SUBHRA CHAKRABORTI
-Last Update: 15th September 2024
-Version: 5.1.0
+Last Update: 14th December 2024
+Version: 5.5.0
 
 Welcome to PyCersi!
 I’ve designed it with careful consideration of user experience.
@@ -11,8 +11,35 @@ Feel free to utilize it to save your precious time. 😊
 
 #Math Module is Required.
 import math as m
-pi = m.pi
-e = m.e
+
+#Constants
+pi = 3.14159265
+e = 2.718281828459045
+GR = 1.618033988749895
+loge = 2.302585092994046
+c = 299792458
+G = 6.67430 * 10**-11
+h = 6.62607015 * 10**-34
+Q = 1.602176634 * 10**-19
+me = 9.10938356 * 10**-31
+mp = 1.6726219 * 10**-27
+mn = 1.674927471 * 10**-27
+NA = 6.02214076 * 10**23
+R = 8.314462618
+ME = 5.972 * 10**24
+MS = 1.988416 * 10**30
+BK = 1.38064852 * 10**-23
+SBK = 5.670374419 * 10**-8
+Eo = 8.854187817 * 10**-12
+Muo = 4 * pi * 10**-7
+AU = 149597870700
+LY = 9.461 * 10**15
+PC = 3.086 * 10**16
+hbar = 1.0545718 * 10**-34
+F = 96485.33212
+H = 2.268 * 10**-18
+fsc = 7.2973525693 * 10**-3
+CSK = 1.4 * MS
 
 #Intro
 def pycersi():
@@ -46,7 +73,7 @@ def pycersi():
         t.goto(140, -20)
         t.pendown()
         t.pencolor("white")
-        t.write("5.1.0", font=("Courier New", 30, "bold"), align="center")
+        t.write("5.5.0", font=("Courier New", 30, "bold"), align="center")
         t.hideturtle()
 
     def notes():
@@ -382,8 +409,6 @@ def digiwords(num):
     if num >= 1:
         words += ones[num] + " "
     return words.strip()
-
-
 def fact(n):
     return m.factorial(n)
 def factor(n):
@@ -392,6 +417,15 @@ def factor(n):
         if n % i == 0:
             l.append(i)
     return l
+def comb(n, r):
+    nf = fact(n)
+    rf = fact(r)
+    nrf = fact(n-r)
+    return nf // (rf * nrf)
+def perm(n, r):
+    nf = fact(n)
+    nrf = fact(n-r)
+    return nf // nrf
 
 #Stack Functions
 def s_push(stack,element):

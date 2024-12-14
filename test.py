@@ -312,8 +312,6 @@ class TestPyCersi(unittest.TestCase):
         self.assertAlmostEqual(p.ar_triangle(5, 5, 5), 10.825317547305483, places=7)
         self.assertAlmostEqual(p.ar_triangle(17, 21, 10), 84, places=7)
 
-
-
     def test_floyd(self):
         # Redirect stdout to capture print output
         captured_output = io.StringIO()
@@ -339,6 +337,16 @@ class TestPyCersi(unittest.TestCase):
         self.assertEqual(p.digiwords(0), "zero")
         self.assertEqual(p.digiwords(42), "Forty Two")
         self.assertEqual(p.digiwords(1999), "One Thousand Nine Hundred Ninety Nine")
+
+    def test_comb(self):
+        self.assertEqual(p.comb(5, 2), 10)
+        self.assertEqual(p.comb(4, 4), 1)
+        self.assertEqual(p.comb(3, 0), 1)
+
+    def test_perm(self):
+        self.assertEqual(p.perm(5, 2), 20)
+        self.assertEqual(p.perm(4, 4), 24)
+        self.assertEqual(p.perm(3, 0), 1)
 
     # Stack Functions Tests
     def test_stack_operations(self):
