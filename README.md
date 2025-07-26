@@ -8,9 +8,9 @@
 
 ##### DEVELOPED BY SUBHRA CHAKRABORTI
 
-##### LAST UPDATE: 14 DECEMBER 2024
+##### LAST UPDATE: 26 JULY 2025
 
-##### VERSION: 5.5.0
+##### VERSION: 6.0.0
 
 ## Overview
 
@@ -128,11 +128,17 @@ PyCersi offers a collection of number-related utilities that can simplify common
   - `Data Encryptor`
   - `Data Decryptor`
 
+- **PyCersi AI BOT _(TTKbootstrap & Google GenerativeAI Module is required)_**
+
+  - `AI Bot: bot`
+  - `AI Bot (Lite Version: To Run On Web Compiler Too) : liteBot`
+
 These functions are designed to help you perform common number-related operations efficiently and can be easily integrated into larger projects.
 
 ## Installation
 
 PyCersi is available on PyPI and can be installed using `pip` on various platforms including Windows, macOS, and Linux.
+PyCersi can also be installed in an automatic process for **Windows** using a .bat file. [Click here](https://subhrachakraborti.com/app)
 
 ### Windows
 
@@ -142,6 +148,7 @@ PyCersi is available on PyPI and can be installed using `pip` on various platfor
 
 ```bash
    pip install pycersi
+   pip install ttkbootstrap google-generativeai
 ```
 
 ### macOS
@@ -156,6 +163,7 @@ PyCersi is available on PyPI and can be installed using `pip` on various platfor
 
 ```bash
    pip3 install pycersi
+   pip install ttkbootstrap google-generativeai
 ```
 
 ### Linux (Ubuntu/Debian-based)
@@ -176,6 +184,7 @@ PyCersi is available on PyPI and can be installed using `pip` on various platfor
 
 ```bash
    pip3 install pycersi
+   pip install ttkbootstrap google-generativeai
 ```
 
 ## Using The Functions
@@ -204,6 +213,16 @@ PyCersi is available on PyPI and can be installed using `pip` on various platfor
    `pycersi.privator()`.
 
    - Example: `pycersi.privator()`
+
+6. For using _Pycersi Bot_, use:
+   `pycersi.bot()`.
+
+   - Example: `pycersi.bot()`
+
+7. For using _Pycersi Bot (Lite Version)_, use:
+   `pycersi.liteBot()`.
+
+   - Example: `pycersi.liteBot()`
 
 ## Contributing
 
