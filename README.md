@@ -288,10 +288,12 @@ If you have any questions, feel free to open an issue or contact me directly at 
 
 ## Acknowledgments
 
-- Math Library
-- Tkinter Module
-- Python Org
-- Visual Studio Code
 - GitHub
-- Microsoft Corporation
 - SafetyCLI
+- Python Org
+- Math Library
+- Google Gemini
+- TTK Bootstrap
+- Tkinter Module
+- Visual Studio Code
+- Microsoft Corporation
