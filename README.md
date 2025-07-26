@@ -10,7 +10,7 @@
 
 ##### LAST UPDATE: 26 JULY 2025
 
-##### VERSION: 6.0.0
+##### VERSION: 6.1.0
 
 ## Overview
 

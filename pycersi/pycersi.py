@@ -1,7 +1,7 @@
 """
 DEVELOPED BY SUBHRA CHAKRABORTI
 Last Update: 14th December 2024
-Version: 6.0.0
+Version: 6.1.0
 
 Welcome to PyCersi!
 I’ve designed it with careful consideration of user experience.
@@ -73,7 +73,7 @@ def pycersi():
         t.goto(140, -20)
         t.pendown()
         t.pencolor("white")
-        t.write("6.0.0", font=("Courier New", 30, "bold"), align="center")
+        t.write("6.1.0", font=("Courier New", 30, "bold"), align="center")
         t.hideturtle()
 
     def notes():
