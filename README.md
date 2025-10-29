@@ -10,7 +10,7 @@
 
 ##### LAST UPDATE: 26 JULY 2025
 
-##### VERSION: 6.1.0
+##### VERSION: 6.1.5
 
 ## Overview
 
@@ -130,8 +130,7 @@ PyCersi offers a collection of number-related utilities that can simplify common
 
 - **PyCersi AI BOT _(TTKbootstrap & Google GenerativeAI Module is required)_**
 
-  - `AI Bot: bot`
-  - `AI Bot (Lite Version: To Run On Web Compiler Too) : liteBot`
+  - `PyCersi AI Bot: bot()`
 
 These functions are designed to help you perform common number-related operations efficiently and can be easily integrated into larger projects.
 
@@ -218,11 +217,6 @@ PyCersi can also be installed in an automatic process for **Windows** using a .b
    `pycersi.bot()`.
 
    - Example: `pycersi.bot()`
-
-7. For using _Pycersi Bot (Lite Version)_, use:
-   `pycersi.liteBot()`.
-
-   - Example: `pycersi.liteBot()`
 
 ## Contributing
 
