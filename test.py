@@ -143,96 +143,7 @@ class TestPyCersi(unittest.TestCase):
     def test_isniven(self):
         self.assertFalse(p.isniven(19))  # Same as isharshad
         self.assertTrue(p.isniven(21))
-
-    def test_isoblong(self):
-        self.assertTrue(p.isoblong(6))  # 6 = 2 * 3
-        self.assertTrue(p.isoblong(12))  # 12 = 3 * 4
-        self.assertFalse(p.isoblong(7))
-
-    def test_isodd(self):
-        self.assertTrue(p.isodd(3))
-        self.assertTrue(p.isodd(101))
-        self.assertFalse(p.isodd(20))
-
-    def test_ispalindrome(self):
-        self.assertTrue(p.ispalindrome(121))
-        self.assertTrue(p.ispalindrome(11))
-        self.assertFalse(p.ispalindrome(123))
-
-    def test_isperfect(self):
-        self.assertTrue(p.isperfect(6))  # 1+2+3 = 6
-        self.assertTrue(p.isperfect(28))  # 1+2+4+7+14 = 28
-        self.assertFalse(p.isperfect(12))
-
-    def test_isprime(self):
-        self.assertTrue(p.isprime(2))
-        self.assertTrue(p.isprime(17))
-        self.assertFalse(p.isprime(1))
-        self.assertFalse(p.isprime(15))
-
-    def test_ispronic(self):
-        self.assertTrue(p.ispronic(6))  # 6 = 2 * 3
-        self.assertTrue(p.ispronic(12))  # 12 = 3 * 4
-        self.assertFalse(p.ispronic(7))
-
-    def test_issunny(self):
-        self.assertTrue(p.issunny(24))  # 24 + 1 = 25, which is a perfect square
-        self.assertFalse(p.issunny(23))
-
-    def test_ispecial(self):
-        self.assertTrue(p.ispecial(59))  # 5 + 9 + 5 * 9 = 59
-        self.assertFalse(p.ispecial(60))
-
-    def test_isspy(self):
-        self.assertTrue(p.isspy(1124))  # 1+1+2+4 = 1*1*2*4 = 8
-        self.assertFalse(p.isspy(1123))
-
-    def test_istwinprime(self):
-        self.assertTrue(p.istwinprime(3, 5))
-        self.assertTrue(p.istwinprime(17, 19))
-        self.assertFalse(p.istwinprime(3, 7))
-
-    def test_istwistedprime(self):
-        self.assertTrue(p.istwistedprime(13))  # 13 and 31 are both prime
-        self.assertFalse(p.istwistedprime(23))  # 23 is prime but 32 is not
-
-    def test_isunique(self):
-        self.assertTrue(p.isunique(1234))
-        self.assertFalse(p.isunique(1224))
-
-    def test_istech(self):
-        self.assertTrue(p.istech(2025))  # (20+25)^2 = 2025
-        self.assertFalse(p.istech(2024))
-
-    def test_isugly(self):
-        self.assertTrue(p.isugly(6))
-        self.assertTrue(p.isugly(8))
-        self.assertFalse(p.isugly(14))
-
-    def test_ar_circle(self):
-        self.assertAlmostEqual(p.ar_circle(1), 2 * math.pi, places=7)
-        self.assertAlmostEqual(p.ar_circle(2), 4 * math.pi, places=7)
-
-    def test_ar_rect(self):
-        self.assertEqual(p.ar_rect(4, 5), 20)
-        self.assertEqual(p.ar_rect(3), 3)  # Testing default value of b=1
-
-    def test_ar_triangle(self):
-        self.assertAlmostEqual(p.ar_triangle(3, 4, 5), 6, places=7)
-        self.assertAlmostEqual(p.ar_triangle(5, 5, 5), 10.825317547305483, places=7)
-
-
-    def test_ismagic(self):
-        self.assertTrue(p.ismagic(1))
-        self.assertTrue(p.ismagic(10))
-        self.assertFalse(p.ismagic(11))
-
-    def test_isneon(self):
-        self.assertTrue(p.isneon(9))  # 9^2 = 81, 8+1 = 9
-        self.assertFalse(p.isneon(10))
-
-    def test_isniven(self):
-        self.assertTrue(p.isniven(18))  # Same as isharshad
+        self.assertTrue(p.isniven(18))
         self.assertFalse(p.isniven(22))
 
     def test_isoblong(self):
@@ -285,7 +196,7 @@ class TestPyCersi(unittest.TestCase):
 
     def test_istwistedprime(self):
         self.assertTrue(p.istwistedprime(13))  # 13 and 31 are both prime
-        self.assertFalse(p.istwistedprime(23)) 
+        self.assertFalse(p.istwistedprime(23))  # 23 is prime but 32 is not
 
     def test_isunique(self):
         self.assertTrue(p.isunique(1234))
