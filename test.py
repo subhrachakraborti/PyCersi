@@ -3,6 +3,7 @@ import pycersi as p
 import io
 import sys
 import math
+import json
 
 class TestPyCersi(unittest.TestCase):
 
@@ -332,8 +333,7 @@ class TestPyCersi(unittest.TestCase):
         self.assertEqual(p.factor(1), [])
 
     def test_digiwords(self):
-        # Note: The digwords function in the provided code seems to be incomplete.
-        # It's missing the 'num' parameter. Let's assume it's fixed and test it.
+        # Basic behavior checks for number-to-word conversion.
         self.assertEqual(p.digiwords(0), "zero")
         self.assertEqual(p.digiwords(42), "Forty Two")
         self.assertEqual(p.digiwords(1999), "One Thousand Nine Hundred Ninety Nine")
@@ -376,6 +376,77 @@ class TestPyCersi(unittest.TestCase):
         sys.stdout = sys.__stdout__
         expected_output = "Current elements are : \n3\n2\n1\n"
         self.assertEqual(captured_output.getvalue(), expected_output)
+
+    # New Scientific and Intelligence APIs
+    def test_convert_units(self):
+        self.assertAlmostEqual(p.convert_units(1000, "m", "km"), 1.0, places=9)
+        self.assertAlmostEqual(p.convert_units(1, "au", "km"), 149597870.7, places=3)
+        with self.assertRaises(ValueError):
+            p.convert_units(1, "foo", "m")
+
+    def test_dimensional_analysis(self):
+        result = p.dimensional_analysis(["m", "m"], ["s", "s"])
+        self.assertEqual(result["units"], {"m": 2, "s": -2})
+        self.assertEqual(result["expression"], "m^2 / s^2")
+
+        no_dim = p.dimensional_analysis(["m"], ["m"])
+        self.assertEqual(no_dim["expression"], "dimensionless")
+
+    def test_solve_linear(self):
+        self.assertEqual(p.solve_linear(2, -4), 2.0)
+        with self.assertRaises(ValueError):
+            p.solve_linear(0, 1)
+
+    def test_solve_quadratic(self):
+        real_case = p.solve_quadratic(1, -3, 2)
+        self.assertEqual(real_case["type"], "quadratic")
+        self.assertEqual(real_case["discriminant"], 1)
+        self.assertEqual(real_case["roots"], (2.0, 1.0))
+
+        complex_case = p.solve_quadratic(1, 2, 5)
+        self.assertEqual(complex_case["type"], "quadratic")
+        self.assertEqual(complex_case["discriminant"], -16)
+        self.assertTrue(isinstance(complex_case["roots"][0], complex))
+
+        linear_fallback = p.solve_quadratic(0, 2, -4)
+        self.assertEqual(linear_fallback, {"type": "linear", "root": 2.0})
+
+    def test_symbolic_derivative(self):
+        self.assertEqual(p.symbolic_derivative("3x^3-2x+7"), "9x^2-2")
+        self.assertEqual(p.symbolic_derivative("x^2+x"), "2x+1")
+        self.assertEqual(p.symbolic_derivative("7"), "0")
+
+    def test_statistics(self):
+        stats = p.statistics([1, 2, 3, 4])
+        self.assertEqual(stats["count"], 4)
+        self.assertEqual(stats["sum"], 10.0)
+        self.assertEqual(stats["min"], 1.0)
+        self.assertEqual(stats["max"], 4.0)
+        self.assertEqual(stats["mean"], 2.5)
+        self.assertEqual(stats["median"], 2.5)
+        self.assertAlmostEqual(stats["variance"], 1.25, places=9)
+        self.assertAlmostEqual(stats["std_dev"], 1.1180339887, places=7)
+
+        with self.assertRaises(ValueError):
+            p.statistics([])
+
+    def test_analyze_number_outputs(self):
+        text_report = p.analyze(153)
+        self.assertIn("153 is:", text_report)
+        self.assertIn("Armstrong number", text_report)
+        self.assertIn("Harshad number", text_report)
+
+        dict_report = p.analyze_number(153, output="dict")
+        self.assertEqual(dict_report["number"], 153)
+        self.assertTrue("Armstrong number" in dict_report["properties"])
+
+        json_report = p.analyze(153, output="json")
+        decoded = json.loads(json_report)
+        self.assertEqual(decoded["number"], 153)
+        self.assertIn("properties", decoded)
+
+        with self.assertRaises(TypeError):
+            p.analyze_number(153.0)
     
 if __name__ == '__main__':
     unittest.main()

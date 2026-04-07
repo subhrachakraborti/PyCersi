@@ -8,9 +8,9 @@
 
 ##### DEVELOPED BY SUBHRA CHAKRABORTI
 
-##### LAST UPDATE: 26 JULY 2025
+##### LAST UPDATE: 07 APRIL 2026
 
-##### VERSION: 6.1.5
+##### VERSION: 7.0.0
 
 ## Overview
 
@@ -31,7 +31,6 @@ PyCersi offers a collection of number-related utilities that can simplify common
 - **Physical Constants**
 
   - `Astronomical Unit (AU)`
-  - `Bohr Radius (a0)`
   - `Electric Permitivity (Eo)`
   - `Elementary Charge (Q)`
   - `Fine Structure Constant (fsc)`
@@ -117,20 +116,40 @@ PyCersi offers a collection of number-related utilities that can simplify common
 - **Stack Functions**
 
   - `Push Into Stack : s_push`
-  - `Pop Out Of Stack : s_push`
+   - `Pop Out Of Stack : s_pop`
   - `Size Of Stack : s_size`
-  - `Underflow Stack Checker : s_empty`
+   - `Underflow Stack Checker : s_Empty`
   - `Top Of Stack : s_top`
   - `Display Stack : s_display`
 
-- **PyCersi Privator _(Tkinter Module is required)_**
+- **PyCersi Privator**
 
-  - `Data Encryptor`
-  - `Data Decryptor`
+   - `Desktop mode (Tkinter): privator()`
+   - `Browser mode: privator_browser()`
+   - `Data Encryptor`
+   - `Data Decryptor`
 
-- **PyCersi AI BOT _(TTKbootstrap & Google GenerativeAI Module is required)_**
+- **PyCersi AI BOT _(Requests module is required)_**
 
-  - `PyCersi AI Bot: bot()`
+   - `CLI Mode`
+   - `Tkinter Mode`
+   - `Browser Mode`
+   - `PyCersi AI Bot: bot()`
+
+- **Scientific Computation Additions**
+
+   - `Unit conversion: convert_units()`
+   - `Dimensional analysis: dimensional_analysis()`
+   - `Linear solver: solve_linear()`
+   - `Quadratic solver: solve_quadratic()`
+   - `Symbolic derivative (basic polynomial): symbolic_derivative()`
+   - `Statistics report: statistics()`
+
+- **Number Intelligence API**
+
+   - `analyze_number()`
+   - `analyze()`
+   - `Text, dict, and JSON report modes`
 
 These functions are designed to help you perform common number-related operations efficiently and can be easily integrated into larger projects.
 
@@ -147,7 +166,6 @@ PyCersi can also be installed in an automatic process for **Windows** using a .b
 
 ```bash
    pip install pycersi
-   pip install ttkbootstrap google-generativeai
 ```
 
 ### macOS
@@ -162,7 +180,6 @@ PyCersi can also be installed in an automatic process for **Windows** using a .b
 
 ```bash
    pip3 install pycersi
-   pip install ttkbootstrap google-generativeai
 ```
 
 ### Linux (Ubuntu/Debian-based)
@@ -183,7 +200,6 @@ PyCersi can also be installed in an automatic process for **Windows** using a .b
 
 ```bash
    pip3 install pycersi
-   pip install ttkbootstrap google-generativeai
 ```
 
 ## Using The Functions
@@ -191,7 +207,7 @@ PyCersi can also be installed in an automatic process for **Windows** using a .b
 1. For using any _searchers_ functions from PyCersi module, use:
    `pycersi.<name>(limit)`.
 
-   - Example: `pycersi.fibo(limit)`
+   - Example: `pycersi.fiboupto(limit)`
 
 2. For using any _checker_ functions from PyCersi module, use:
    `pycersi.is<name>(value)`.
@@ -199,14 +215,14 @@ PyCersi can also be installed in an automatic process for **Windows** using a .b
    - Example: `pycersi.issunny(value)`
 
 3. For using any _mathematical_ function from PyCersi module, use:
-   `pycersi.cal<name>(value)`.
+   `pycersi.<name>(value)`.
 
-   - Example: `pycesi.calfact(value)`
+   - Example: `pycersi.fact(value)`
 
 4. For using any _stack_ function from PyCersi module, use:
    `pycersi.s_<name>(stack,[element])`.
 
-   - Example: `pycesi.s_top(book_stack)`
+   - Example: `pycersi.s_top(book_stack)`
 
 5. For using _Pycersi Privator_, use:
    `pycersi.privator()`.
@@ -217,6 +233,43 @@ PyCersi can also be installed in an automatic process for **Windows** using a .b
    `pycersi.bot()`.
 
    - Example: `pycersi.bot()`
+   - Bot asks for your OpenRouter API key at runtime.
+
+7. For using _PyCersi Privator Browser Mode_, use:
+   `pycersi.privator_browser()`.
+
+   - Example: `pycersi.privator_browser()`
+
+8. For number intelligence report, use:
+   `pycersi.analyze(number)`.
+
+   - Example: `pycersi.analyze(153)`
+   - JSON output: `pycersi.analyze(153, output="json")`
+
+9. For scientific conversions and equation helpers, use:
+   `pycersi.convert_units(value, from_unit, to_unit)`
+   `pycersi.solve_linear(a, b)`
+   `pycersi.solve_quadratic(a, b, c)`
+
+   - Example: `pycersi.convert_units(1, "au", "km")`
+   - Example: `pycersi.solve_quadratic(1, -3, 2)`
+
+10. For dimension checks, symbolic derivative, and stats, use:
+   `pycersi.dimensional_analysis(numerator_units, denominator_units)`
+   `pycersi.symbolic_derivative(expression)`
+   `pycersi.statistics(data)`
+
+   - Example: `pycersi.dimensional_analysis(["m", "m"], ["s", "s"])`
+   - Example: `pycersi.symbolic_derivative("3x^3-2x+7")`
+   - Example: `pycersi.statistics([1,2,3,4,5])`
+
+## Running Tests
+
+From project root:
+
+```bash
+python test.py
+```
 
 ## Contributing
 
@@ -282,12 +335,9 @@ If you have any questions, feel free to open an issue or contact me directly at 
 
 ## Acknowledgments
 
-- GitHub
-- SafetyCLI
-- Python Org
+- Python ORG
+- OpenRouter
 - Math Library
-- Google Gemini
 - TTK Bootstrap
+- Requests Library
 - Tkinter Module
-- Visual Studio Code
-- Microsoft Corporation

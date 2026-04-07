@@ -1,8 +1,8 @@
 # __init__.py
 
 __name__ = 'PyCersi'
-__version__ = '6.1.5'
+__version__ = '7.0.0'
 __author__ = 'Subhra Chakraborti'
-__author_email__ = 'mail@subhrachakraborti.com'
+__author_email__ = 'mail@subhrachakraborti.com, subhra@linuxmail.org'
 
 from .pycersi import *

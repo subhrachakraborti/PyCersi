@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pycersi"
+version = "7.0.0"
+description = "PyCersi is a lightweight Python library for number-related utilities. It offers mathematical functions, checkers, and stack operations, simplifying common tasks."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Subhra Chakraborti", email = "mail@subhrachakraborti.com" },
+]
+maintainers = [
+  { name = "Subhra Chakraborti", email = "subhra@linuxmail.org" },
+]
+keywords = ["pycersi", "math", "number-theory", "utilities", "education"]
+dependencies = [
+  "requests>=2.33.1",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Education",
+  "Intended Audience :: Developers",
+  "Topic :: Scientific/Engineering :: Mathematics",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/subhrachakraborti/PyCersi"
+Repository = "https://github.com/subhrachakraborti/PyCersi"
+Issues = "https://github.com/subhrachakraborti/PyCersi/issues"
+
+[tool.setuptools.packages.find]
+include = ["pycersi*"]

@@ -1,7 +1,7 @@
 """
 DEVELOPED BY SUBHRA CHAKRABORTI
-Last Update: 14th December 2024
-Version: 6.1.5
+Last Update: 7th April 2026
+Version: 7.0.0
 
 Welcome to PyCersi!
 I’ve designed it with careful consideration of user experience.
@@ -11,6 +11,17 @@ Feel free to utilize it to save your precious time. 😊
 
 #Math Module is Required.
 import math as m
+import json
+
+try:
+    from .privator import privator, privator_browser
+except ImportError:
+    from privator import privator, privator_browser
+
+try:
+    from .bot import bot
+except ImportError:
+    from bot import bot
 
 #Constants
 pi = 3.14159265
@@ -73,7 +84,7 @@ def pycersi():
         t.goto(140, -20)
         t.pendown()
         t.pencolor("white")
-        t.write("6.1.5", font=("Courier New", 30, "bold"), align="center")
+        t.write("7.0.0", font=("Courier New", 30, "bold"), align="center")
         t.hideturtle()
 
     def notes():
@@ -457,260 +468,245 @@ def s_display(stack):
     for i in range(x-1,-1,-1):
         print(stack[i])
 
-#Encryptor and Decriptor - Pycersi Privator
-def privator():
-    try:
-        import tkinter as tk
-        from tkinter import messagebox, font, ttk
-        import base64
 
-        class ColorfulEncryptionApp:
-            def __init__(self, master):
-                self.master = master
-                master.title("PyCersi Privator")
-                master.geometry("800x525")
-                master.configure(bg="#2C3E50")
-
-                # Define cool fonts
-                self.title_font = font.Font(family="Orbitron", size=20, weight="bold")
-                self.label_font = font.Font(family="Exo 2", size=15)
-                self.input_font = font.Font(family="Times New Roman", size=12)
-                self.button_font = font.Font(family="Calibri", size=15, weight="bold")
-
-                self.title_label = tk.Label(master, text="🔐 Secret Message Encoder 🔓", font=self.title_font, bg="#2C3E50", fg="#ECF0F1")
-                self.title_label.pack(pady=20)
-
-                self.input_label = tk.Label(master, text="Enter Your Message ⬇️", font=self.label_font, bg="#2C3E50", fg="#ECF0F1")
-                self.input_label.pack()
-
-                # Create a frame for input text and scrollbar
-                self.input_frame = tk.Frame(master, bg="#2C3E50")
-                self.input_frame.pack(pady=5)
-
-                self.input_entry = tk.Text(self.input_frame, width=60, height=5, font=self.input_font, bg="#ECF0F1")
-                self.input_entry.pack(side=tk.LEFT)
-
-                self.input_scrollbar = ttk.Scrollbar(self.input_frame, orient="vertical", command=self.input_entry.yview)
-                self.input_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-                self.input_entry.configure(yscrollcommand=self.input_scrollbar.set)
-
-                self.key_label = tk.Label(master, text="Enter Key", font=self.label_font, bg="#2C3E50", fg="#ECF0F1")
-                self.key_label.pack()
-                self.key_entry = tk.Entry(master, width=10, font=self.input_font, bg="#ECF0F1", justify='center')
-                self.key_entry.pack(pady=5)
-
-                self.button_frame = tk.Frame(master, bg="#2C3E50")
-                self.button_frame.pack(pady=10)
-
-                self.encrypt_button = tk.Button(self.button_frame, text="🔒 ENCRYPT", command=self.encrypt, 
-                                                font=self.button_font, bg="#27AE60", fg="white", padx=15)
-                self.encrypt_button.pack(side=tk.LEFT, padx=5)
-
-                self.decrypt_button = tk.Button(self.button_frame, text="🔓 DECRYPT", command=self.decrypt, 
-                                                font=self.button_font, bg="#E74C3C", fg="white", padx=15)
-                self.decrypt_button.pack(side=tk.LEFT, padx=5)
-
-                self.result_label = tk.Label(master, text="RESULT 🟰", font=self.label_font, bg="#2C3E50", fg="#ECF0F1")
-                self.result_label.pack()
-                
-                # Create a frame for result text and scrollbar
-                self.result_frame = tk.Frame(master, bg="#2C3E50")
-                self.result_frame.pack(pady=5)
-                
-                self.result_entry = tk.Text(self.result_frame, width=60, height=5, font=self.input_font, bg="#ECF0F1")
-                self.result_entry.pack(side=tk.LEFT)
-
-                self.result_scrollbar = ttk.Scrollbar(self.result_frame, orient="vertical", command=self.result_entry.yview)
-                self.result_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-                self.result_entry.configure(yscrollcommand=self.result_scrollbar.set)
-                
-                self.copy_button = tk.Button(master, text="📋 Copy", command=self.copy_result, 
-                                            font=self.button_font, bg="#3498DB", fg="white")
-                self.copy_button.pack(pady=5)
-
-                # Bind keyboard shortcuts
-                self.input_entry.bind('<Return>', self.encrypt_event)
-                self.key_entry.bind('<Return>', self.encrypt_event)
-
-                x = tk.Label(master, text="Made with 💖 by Subhra Chakraborti", font=self.label_font, bg="#2C3E50", fg="#ECF0F1")
-                x.pack(pady=120)
-
-            # The rest of the methods remain the same
-            def generate_key(self, key_string):
-                return (key_string * (32 // len(key_string) + 1))[:32].encode()
-
-            def xor_encrypt_decrypt(self, message, key):
-                return bytes([message[i] ^ key[i % len(key)] for i in range(len(message))])
-
-            def encrypt_event(self, event):
-                self.encrypt()
-                return 'break'
-
-            def decrypt_event(self, event):
-                self.decrypt()
-                return 'break'
-
-            def encrypt(self):
-                message = self.input_entry.get("1.0", tk.END).strip()
-                key_string = self.key_entry.get()
-                if message and key_string:
-                    key = self.generate_key(key_string)
-                    encrypted = self.xor_encrypt_decrypt(message.encode(), key)
-                    self.result_entry.delete("1.0", tk.END)
-                    self.result_entry.insert("1.0", base64.b64encode(encrypted).decode())
-                elif message and not key_string:
-                    key = self.generate_key("150847")
-                    messagebox.showinfo("Default Key Used!", "Default Key: 150847")
-                    encrypted = self.xor_encrypt_decrypt(message.encode(), key)
-                    self.result_entry.delete("1.0", tk.END)
-                    self.result_entry.insert("1.0", base64.b64encode(encrypted).decode())
-                else:
-                    messagebox.showwarning("⚠️WARNING⚠️", "Please enter message!")
-
-            def decrypt(self):
-                encrypted_message = self.input_entry.get("1.0", tk.END).strip()
-                key_string = self.key_entry.get()
-                if encrypted_message and key_string:
-                    try:
-                        key = self.generate_key(key_string)
-                        encrypted = base64.b64decode(encrypted_message)
-                        decrypted = self.xor_encrypt_decrypt(encrypted, key).decode()
-                        self.result_entry.delete("1.0", tk.END)
-                        self.result_entry.insert("1.0", decrypted)
-                    except:
-                        messagebox.showerror("Error", "Invalid encrypted message or key.")
-                else:
-                    messagebox.showwarning("⚠️WARNING⚠️", "Please enter both an encrypted message and the correct key.")
-
-            def copy_result(self):
-                result = self.result_entry.get("1.0", tk.END).strip()
-                if result:
-                    self.master.clipboard_clear()
-                    self.master.clipboard_append(result)
-                    self.master.update()
-                else:
-                    messagebox.showwarning("⚠️WARNING⚠️", "No result to copy.")
-
-        root = tk.Tk()
-        app = ColorfulEncryptionApp(root)
-        root.mainloop()
-    except ImportError:
-        print("Try Installing Tkinter Module.")
-
-#AI Bot
-def bot():
-    import requests
-    import json
-    import threading
-    import tkinter as tk
-    from tkinter import scrolledtext, messagebox
-
-    API_KEY = "<>"
-    MODEL = "nvidia/nemotron-nano-12b-v2-vl:free"
-    API_URL = "https://openrouter.ai/api/v1/chat/completions"
-
-    HEADERS = {
-        "Authorization": f"Bearer {API_KEY}",
-        "Content-Type": "application/json",
+#Scientific Computation and Number Intelligence
+def convert_units(value, from_unit, to_unit):
+    unit_factors = {
+        "m": 1.0,
+        "meter": 1.0,
+        "meters": 1.0,
+        "km": 1000.0,
+        "kilometer": 1000.0,
+        "kilometers": 1000.0,
+        "cm": 0.01,
+        "centimeter": 0.01,
+        "centimeters": 0.01,
+        "mm": 0.001,
+        "millimeter": 0.001,
+        "millimeters": 0.001,
+        "au": float(AU),
+        "ly": float(LY),
+        "pc": float(PC),
     }
 
-    messages = []
+    f_unit = str(from_unit).strip().lower()
+    t_unit = str(to_unit).strip().lower()
 
-    def get_ai_response(user_input):
-        """Handles sending a chat message and getting AI response (used by both modes)."""
-        nonlocal messages
-        messages.append({"role": "user", "content": user_input})
+    if f_unit not in unit_factors:
+        raise ValueError(f"Unsupported from_unit: {from_unit}")
+    if t_unit not in unit_factors:
+        raise ValueError(f"Unsupported to_unit: {to_unit}")
 
+    meters = float(value) * unit_factors[f_unit]
+    return meters / unit_factors[t_unit]
+
+
+def dimensional_analysis(numerator_units, denominator_units=None):
+    powers = {}
+
+    for unit in numerator_units:
+        u = str(unit).strip()
+        if u:
+            powers[u] = powers.get(u, 0) + 1
+
+    if denominator_units:
+        for unit in denominator_units:
+            u = str(unit).strip()
+            if u:
+                powers[u] = powers.get(u, 0) - 1
+
+    simplified = {k: v for k, v in powers.items() if v != 0}
+    if not simplified:
+        return {"units": {}, "expression": "dimensionless"}
+
+    positives = []
+    negatives = []
+    for unit, power in sorted(simplified.items()):
+        if power > 0:
+            positives.append(unit if power == 1 else f"{unit}^{power}")
+        else:
+            p = abs(power)
+            negatives.append(unit if p == 1 else f"{unit}^{p}")
+
+    num_expr = " * ".join(positives) if positives else "1"
+    den_expr = " * ".join(negatives)
+    expr = f"{num_expr} / {den_expr}" if den_expr else num_expr
+
+    return {"units": simplified, "expression": expr}
+
+
+def solve_linear(a, b):
+    if a == 0:
+        raise ValueError("a cannot be 0 for a linear equation.")
+    return -b / a
+
+
+def solve_quadratic(a, b, c):
+    if a == 0:
+        return {"type": "linear", "root": solve_linear(b, c)}
+
+    d = b**2 - 4 * a * c
+    sqrt_d = m.sqrt(abs(d))
+    if d >= 0:
+        r1 = (-b + sqrt_d) / (2 * a)
+        r2 = (-b - sqrt_d) / (2 * a)
+    else:
+        real = -b / (2 * a)
+        imag = sqrt_d / (2 * a)
+        r1 = complex(real, imag)
+        r2 = complex(real, -imag)
+
+    return {"type": "quadratic", "discriminant": d, "roots": (r1, r2)}
+
+
+def symbolic_derivative(expression, variable="x"):
+    expr = str(expression).replace(" ", "")
+    expr = expr.replace("-", "+-")
+    if expr.startswith("+"):
+        expr = expr[1:]
+
+    raw_terms = [t for t in expr.split("+") if t]
+    derivative_terms = []
+
+    for term in raw_terms:
+        if variable not in term:
+            continue
+
+        if "^" in term:
+            base_part, power_str = term.split("^", 1)
+            power = int(power_str)
+        else:
+            base_part = term
+            power = 1
+
+        coeff_text = base_part.replace(variable, "")
+        if coeff_text in ("", "+"):
+            coeff = 1
+        elif coeff_text == "-":
+            coeff = -1
+        else:
+            coeff = int(coeff_text)
+
+        new_coeff = coeff * power
+        new_power = power - 1
+
+        if new_power == 0:
+            derivative_terms.append(str(new_coeff))
+        elif new_power == 1:
+            if new_coeff == 1:
+                derivative_terms.append(variable)
+            elif new_coeff == -1:
+                derivative_terms.append(f"-{variable}")
+            else:
+                derivative_terms.append(f"{new_coeff}{variable}")
+        else:
+            if new_coeff == 1:
+                derivative_terms.append(f"{variable}^{new_power}")
+            elif new_coeff == -1:
+                derivative_terms.append(f"-{variable}^{new_power}")
+            else:
+                derivative_terms.append(f"{new_coeff}{variable}^{new_power}")
+
+    if not derivative_terms:
+        return "0"
+
+    output = derivative_terms[0]
+    for t in derivative_terms[1:]:
+        if t.startswith("-"):
+            output += t
+        else:
+            output += f"+{t}"
+    return output
+
+
+def statistics(data):
+    if data is None:
+        raise ValueError("data cannot be None")
+
+    values = [float(x) for x in data]
+    if len(values) == 0:
+        raise ValueError("data cannot be empty")
+
+    n = len(values)
+    mean_value = sum(values) / n
+    sorted_values = sorted(values)
+
+    if n % 2 == 1:
+        median_value = sorted_values[n // 2]
+    else:
+        median_value = (sorted_values[n // 2 - 1] + sorted_values[n // 2]) / 2
+
+    variance_value = sum((x - mean_value) ** 2 for x in values) / n
+    std_dev_value = m.sqrt(variance_value)
+
+    return {
+        "count": n,
+        "sum": sum(values),
+        "min": min(values),
+        "max": max(values),
+        "mean": mean_value,
+        "median": median_value,
+        "variance": variance_value,
+        "std_dev": std_dev_value,
+    }
+
+
+def analyze_number(n, output="text"):
+    if not isinstance(n, int):
+        raise TypeError("n must be an integer")
+
+    checks = [
+        ("Abundant number", isabundant),
+        ("Armstrong number", isarmstrong),
+        ("Automorphic number", isautomorphic),
+        ("Composite number", lambda x: x > 1 and iscomposite(x)),
+        ("Disarium number", isdisarium),
+        ("Duck number", isduck),
+        ("Even number", iseven),
+        ("Fibonacci number", isfibonacci),
+        ("Harshad number", isharshad),
+        ("Krishnamurthy number", iskrishnamurthy),
+        ("Magic number", ismagic),
+        ("Neon number", isneon),
+        ("Odd number", isodd),
+        ("Palindrome number", ispalindrome),
+        ("Perfect number", isperfect),
+        ("Prime number", isprime),
+        ("Special number", ispecial),
+        ("Spy number", isspy),
+        ("Sunny number", issunny),
+        ("Tech number", istech),
+        ("Ugly number", isugly),
+        ("Unique number", isunique),
+    ]
+
+    matched = []
+    for label, checker in checks:
         try:
-            response = requests.post(
-                API_URL,
-                headers=HEADERS,
-                data=json.dumps({
-                    "model": MODEL,
-                    "messages": messages,
-                }),
-            )
-            data = response.json()
+            if checker(n):
+                matched.append(label)
+        except Exception:
+            continue
 
-            if "error" in data:
-                return f"[Error] {data['error']['message']}"
+    report = {
+        "number": n,
+        "properties": matched,
+        "count": len(matched),
+    }
 
-            reply = data["choices"][0]["message"]["content"]
-            messages.append({"role": "assistant", "content": reply})
-            return reply
+    out = str(output).strip().lower()
+    if out == "dict":
+        return report
+    if out == "json":
+        return json.dumps(report, indent=2)
 
-        except Exception as e:
-            return f"[Error] {str(e)}"
-        
-    def console_mode():
-        print("=== PyCersi AI Bot (Light Mode) ===")
-        print("Type EXIT or QUIT to stop.\n")
+    lines = [f"{n} is:"]
+    if matched:
+        lines.extend([f"- {item}" for item in matched])
+    else:
+        lines.append("- No special properties found in current checks")
+    return "\n".join(lines)
 
-        while True:
-            user_input = input("You: ").strip()
-            if user_input.lower() in ["exit", "quit"]:
-                print("Exiting PyCersi AI Bot. Goodbye!")
-                break
 
-            reply = get_ai_response(user_input)
-            print("PyCersi:", reply)
-            print()
-
-    def ui_mode():
-        def display_message(msg):
-            chat_display.config(state=tk.NORMAL)
-            chat_display.insert(tk.END, msg + "\n\n")
-            chat_display.config(state=tk.DISABLED)
-            chat_display.yview(tk.END)
-
-        def on_send():
-            user_text = user_input.get().strip()
-            if not user_text:
-                return
-            if user_text.lower() in ["exit", "quit"]:
-                root.destroy()
-                return
-
-            display_message(f"You: {user_text}")
-            user_input.delete(0, tk.END)
-
-            def run_in_thread():
-                reply = get_ai_response(user_text)
-                display_message(f"PyCersi: {reply}")
-
-            threading.Thread(target=run_in_thread, daemon=True).start()
-
-        root = tk.Tk()
-        root.title("PyCersi AI Bot (UI Mode)")
-        root.geometry("700x600")
-        root.resizable(False, False)
-        root.configure(bg="#ffffff")
-
-        chat_display = scrolledtext.ScrolledText(root, wrap=tk.WORD, font=("Consolas", 11), bg="#f7f7f7")
-        chat_display.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
-        chat_display.insert(tk.END, "🤖 PyCersi AI Bot (UI Mode) is running...\nType your message below.\n\n")
-        chat_display.config(state=tk.DISABLED)
-
-        user_input = tk.Entry(root, font=("Consolas", 12))
-        user_input.pack(padx=10, pady=(0, 10), fill=tk.X)
-
-        send_button = tk.Button(root, text="Send", font=("Consolas", 12, "bold"), bg="#007acc", fg="white", command=on_send)
-        send_button.pack(pady=(0, 10))
-
-        user_input.bind("<Return>", lambda event: on_send())
-        root.mainloop()
-    
-    print("\n=== PyCersi AI Bot ===")
-    print("1. Light Mode (Console)")
-    print("2. UI Mode (Tkinter)")
-    print("======================")
-
-    choice = input("Choose mode (1 or 2): ").strip()
-
-    match choice:
-        case "1":
-            console_mode()
-        case "2":
-            ui_mode()
-        case _:
-            print("Invalid choice. Exiting...")
+def analyze(n, output="text"):
+    return analyze_number(n, output)
