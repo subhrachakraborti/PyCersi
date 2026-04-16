@@ -8,9 +8,9 @@
 
 ##### DEVELOPED BY SUBHRA CHAKRABORTI
 
-##### LAST UPDATE: 07 APRIL 2026
+##### LAST UPDATE: 16 APRIL 2026
 
-##### VERSION: 7.0.0
+##### VERSION: 7.0.5
 
 ## Overview
 

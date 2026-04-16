@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pycersi"
-version = "7.0.0"
+version = "7.0.5"
 description = "PyCersi is a lightweight Python library for number-related utilities. It offers mathematical functions, checkers, and stack operations, simplifying common tasks."
 readme = "README.md"
 requires-python = ">=3.10"
